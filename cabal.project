@@ -1,0 +1,6 @@
+packages: .
+
+source-repository-package
+  type: git
+  location: https://github.com/acairncross/retroclash-lib.git
+  tag: ae665963d6199518cb5a159246275c572562da18
