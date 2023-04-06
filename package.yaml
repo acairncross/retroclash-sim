@@ -1,17 +1,33 @@
-name: retroclash-sim
-version: 0.0.0
-category: hardware
+name:                retroclash-sim
+version:             0.1.1
+category:            Hardware, Graphics
+synopsis:            High-level simulators from the book "Retrocomputing with Clash"
+description: |
+  A library of functionality useful when simulating retro-computers:
+
+    * Interactive Clash simulation in IO
+    
+    * SDL-based framework for graphics simulation
+
+    * VGA signal interpreter
+    
+homepage:            https://unsafePerform.IO/retroclash/
+github:              gergoerdi/retroclash-sim
+license:             MIT
+author:              Gergő Érdi
+maintainer:          gergo@erdi.hu
+copyright:           2021 Gergő Érdi
 
 dependencies:
-  - base
-  - clash-prelude
-  - clash-lib
-  - clash-ghc
+  - base >= 4.14 && < 5
+  - clash-prelude ^>= 1.4.2 || ^>= 1.6.1
+  - clash-lib  ^>= 1.4.2 || ^>= 1.6.1
+  - clash-ghc ^>= 1.4.2 || ^>= 1.6.1
   - ghc-typelits-natnormalise
   - ghc-typelits-extra
   - ghc-typelits-knownnat
 
-  - retroclash-lib
+  - retroclash-lib ^>= 0.1
 
   - sdl2
   - mtl
@@ -19,6 +35,7 @@ dependencies:
   - array
   - text
   - lens
+  - arrows
 
 source-dirs:
   - src
@@ -29,18 +46,35 @@ ghc-options:
   -fplugin GHC.TypeLits.Normalise
   -fplugin GHC.TypeLits.Extra.Solver
 
+# Anything that Clash uses by default should go here
 default-extensions:
-  - NoImplicitPrelude
-  - FlexibleContexts
-  - ScopedTypeVariables
+  - BinaryLiterals
+  - ConstraintKinds
   - DataKinds
-  - NoStarIsType
+  - DeriveAnyClass
+  - DeriveGeneric
+  - DeriveLift
+  - DerivingStrategies
+  - ExplicitForAll
+  - ExplicitNamespaces
+  - FlexibleContexts
+  - FlexibleInstances
   - KindSignatures
-  - TypeOperators
+  - MagicHash
+  - MonoLocalBinds
+  - NoImplicitPrelude
+  - NoMonomorphismRestriction
+  - NoStarIsType
+  - NoStrictData
+  - NoStrict
+  - QuasiQuotes
+  - ScopedTypeVariables
+  - TemplateHaskellQuotes
+  - TemplateHaskell
   - TypeApplications
   - TypeFamilies
-  - DeriveGeneric
-  - DeriveAnyClass
+  - TypeInType
+  - TypeOperators
 
 library:
   exposed-modules:
